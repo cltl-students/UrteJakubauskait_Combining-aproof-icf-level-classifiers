@@ -1,0 +1,69 @@
+"""
+This script selects a small random sample of sentences containing specific 
+minimizers words from multiple filtered training datasets and combines them 
+into a single CSV file.
+
+Firstly, it iterates over all CSV files in the specified input folder. For each
+file, it reads the dataset into a DataFrame. Then, it filters rows where the
+'text' column contains any of the predefined intensifier words. Then, randomly
+selects up to `sample_size` rows from the filtered subset and creates a copy of
+the selected sentences as 'sentence_copy'. Afterwards, the script renames
+'labels' column to 'original_level' and adds a 'new_level' column. Then, it
+inserts the new columns next to the 'text' column for consistency and adds a
+'source_file' column indicating the origin file. Then, it combines all selected
+rows into a single DataFrame. Finally, it saves the combined DataFrame as
+`selected_minimizers_sentences.csv`.
+
+Parameters:
+- input_folder: folder containing filtered CSV datasets.
+- output_csv: name of the resulting combined CSV file.
+- sample_size: maximum number of rows to select per file.
+"""
+
+import os
+import random
+import pickle
+import pandas as pd 
+
+input_folder = "/Users/A-PROOF/urte/error analysis/filtered_train_datasets"
+output_csv = "selected_minimizers_sentences.csv"
+sample_size = 6
+
+minimizers_words = ["amper", "nauwelijks", "ternauwernood", "zelden", "met moeite",
+                      "beetje", "wat", "iets", "tikje", "tikkeltje", "snufje", "enigszins", 
+                      "een beetje", "lichtjes", "ietwat", "in zekere mate", "in geringe mate", 
+                      "in kleine mate", "bijna", "bijna niet", "nagenoeg", "haast", 
+                      "zo goed als", "vrijwel"]
+
+all_selected = []
+
+for filename in os.listdir(input_folder):
+    filepath = os.path.join(input_folder, filename)
+
+    df = pd.read_csv(filepath)
+
+    mask = df["text"].astype(str).str.lower().apply(lambda s: any(mim in s for mim in minimizers_words))
+    mim_df = df[mask]
+
+    selected_rows = mim_df.sample(n=min(sample_size, len(mim_df)), random_state=42)
+    selected_rows = selected_rows.copy()
+    selected_rows["source_file"] = filename
+
+    selected_rows["sentence_copy"] = selected_rows["text"]
+    selected_rows.rename(columns={"labels": "original_level"}, inplace=True)
+    selected_rows["new_level"] = ""
+
+    cols = list(selected_rows.columns)
+    for c in ["sentence_copy", "original_level", "new_level"]:
+        if c in cols:
+            cols.remove(c)
+    
+    text_idx = cols.index("text") + 1
+    for i, c in enumerate(["sentence_copy", "original_level", "new_level"]):
+        cols.insert(text_idx + i, c)
+
+    selected_rows = selected_rows[cols]
+    all_selected.append(selected_rows)
+
+combined_df = pd.concat(all_selected, ignore_index=True)
+combined_df.to_csv(output_csv, index=False, encoding="utf-8")
