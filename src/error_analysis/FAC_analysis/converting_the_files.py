@@ -20,4 +20,3 @@ if isinstance(data, pd.DataFrame):
 else:
     df = pd.DataFrame(data)
     df.to_csv(csv_file, index=False)
-
