@@ -14,15 +14,13 @@ number of sentences per target category using a Counter. Finally, it prints the
 number of sentences for each target category.
 """
 
-
 import json
 from collections import Counter
 
 input_file = "train_AMC2023.json"
 output_file = "filtered_sentences_new_categories.json"
 
-target_categories = ["B280", "B134", "D760", "B164", "D465", 
-                     "D410", "B230", "D240"]
+target_categories = ["B280", "B134", "D760", "B164", "D465", "D410", "B230", "D240"]
 
 with open (input_file, "r", encoding = "utf-8") as f:
     data = json.load(f)
