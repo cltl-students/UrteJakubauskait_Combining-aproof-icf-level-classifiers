@@ -42,4 +42,3 @@ with open(output_file, "w", encoding="utf-8") as f_out:
         f_out.write(f"Shortest sentence (words): {len(df['text'].iloc[text_lengths.idxmin()])}\n")
         f_out.write(f"Longest sentence length (words): {len(df['text'].iloc[text_lengths.idxmax()])}\n")
         f_out.write("-" * 60 + "\n\n")
-
