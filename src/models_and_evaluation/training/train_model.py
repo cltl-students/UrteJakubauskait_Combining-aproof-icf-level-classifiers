@@ -77,7 +77,7 @@ def train(train_pkl,
     train_data = pd.read_pickle(train_pkl)
     eval_data = pd.read_pickle(eval_pkl)
 
-    # converting to a DataFrame (only for combined files as they were saved differently)
+    # convert to a DataFrame (only for combined files as they were saved differently)
     train_data = pd.DataFrame(train_data)
     eval_data = pd.DataFrame(eval_data)
 
@@ -116,7 +116,7 @@ if __name__ == '__main__':
     argparser.add_argument('--eval_on', default='dev', help='only used if `evaluate_during_training` is True in the model args in `config`')
     args = argparser.parse_args()
 
-    # Resolve paths relative to the project root
+    # resolve paths relative to the project root
     CURRENT_DIR = Path(__file__).parent   # directory of this script
     PROJECT_ROOT = CURRENT_DIR.parent     # adjust if the script is nested differently
     BASE_DATA_PATH = PROJECT_ROOT / args.datapath
