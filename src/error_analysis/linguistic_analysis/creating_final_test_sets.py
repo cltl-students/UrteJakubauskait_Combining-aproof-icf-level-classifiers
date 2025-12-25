@@ -39,4 +39,3 @@ for domain in domains:
 
     df_domain.to_csv(f"{domain}_test_negations.csv", index=False)
     df_domain.to_pickle(f"{domain}_test_negations.pkl")
-
