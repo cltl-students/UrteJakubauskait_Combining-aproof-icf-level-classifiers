@@ -32,4 +32,3 @@ for _, row in df.iterrows():
 expanded_df = pd.DataFrame(expanded_rows)
 
 expanded_df.to_csv(f"final_intensifiers.csv", index=False)
-
