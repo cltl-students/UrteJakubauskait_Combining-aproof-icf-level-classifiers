@@ -6,7 +6,7 @@ The evaluation metrics include: mean absolute error, mean squared error, root me
 
 Evaluation metrics are computed and reported separately per domain.
 
-$ python evaluate_model.py --doms ATT
+$ clf_levels_eval_note_agg.py --doms ATT
 """
 
 import argparse
