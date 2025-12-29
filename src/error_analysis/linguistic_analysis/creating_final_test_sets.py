@@ -1,6 +1,6 @@
 """
 This script processes a dataset of linguistic elements stored in a CSV file 
-(for example, "negations.csv") and creates expanded and domain-specific test
+(for example, 'negations.csv') and creates expanded and domain-specific test
 sets.
 
 For each row in the original CSV, the original row is kept (with auxiliary
@@ -14,7 +14,7 @@ each unique domain.
 
 import pandas as pd
 import re
-df = pd.read_csv("negations.csv")
+df = pd.read_csv("YOUR_INPUT_FILE.csv")
 
 expanded_rows = []
 
@@ -37,5 +37,5 @@ domains = expanded_df["domain"].unique()
 for domain in domains:
     df_domain = expanded_df[expanded_df["domain"] == domain].reset_index(drop=True)
 
-    df_domain.to_csv(f"{domain}_test_negations.csv", index=False)
-    df_domain.to_pickle(f"{domain}_test_negations.pkl")
+    df_domain.to_csv(f"{domain}_YOUR_OUTPUT_FILE.csv", index=False)
+    df_domain.to_pickle(f"{domain}_YOUR_OUTPUT_FILE.pkl")
