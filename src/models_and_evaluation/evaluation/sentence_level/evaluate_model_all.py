@@ -3,8 +3,8 @@ Evaluate fine-tuned regression model on an evaluation set for a single,
 hardcoded domain.
 
 Note: By default, the domain is hardcoded in the script (for example,
-`dom = 'STM'`). If you want to evaluate another domain, you need to modify the
-`dom` variable in the script accordingly. This script does not loop over
+'dom = "STM"'). If you want to evaluate another domain, you need to modify the
+'dom' variable in the script accordingly. This script does not loop over
 multiple domains automatically.
 
 Save the following outputs:
@@ -20,7 +20,7 @@ The script can be customized with the following parameters:
     --eval_on: name of the file with the eval data
 
 Example:
-$ python evaluate_model_all.py --clas_unit note --eval_on dev
+$ python evaluate_model_all.py --clas_unit note
 """
 
 import argparse
@@ -43,7 +43,7 @@ def evaluate(test_pkl,
     
     """
     Evaluate a fine-tuned regression model on a test set.
-    Save evaluation metrics, model outputs and wrong predictions in `output_dir`. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
+    Save evaluation metrics, model outputs and wrong predictions in 'output_dir'. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
 
     Parameters
     ----------
