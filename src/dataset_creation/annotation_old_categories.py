@@ -23,7 +23,7 @@ client= AzureOpenAI(api_key="AZURE_OPENAI_API_KEY",
                     azure_endpoint=ip,
                     http_client=http)
 
-FEWSHOT_PATH = pathlib.Path("fewshot_examples.json")
+FEWSHOT_PATH = pathlib.Path("FILE_WITH_EXAMPLES.json")
 FEWSHOT = json.loads(FEWSHOT_PATH.read_text(encoding="utf-8"))
 
 CATEGORIES = ["B1300 Energy level", "B140 Attention functions", "B152 Emotional functions",
