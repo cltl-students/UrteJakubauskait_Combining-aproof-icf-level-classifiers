@@ -3,8 +3,8 @@ Evaluate fine-tuned regression models on an evaluation set for a single,
 hardcoded domain.
 
 Note: By default, the domain is hardcoded in the script (for example,
-`dom = 'STM'`). If you want to evaluate another domain, you need to modify the
-`dom` variable in the script accordingly. This script does not loop over
+'dom = "STM"'). If you want to evaluate another domain, you need to modify the
+'dom' variable in the script accordingly. This script does not loop over
 multiple domains automatically.
 
 Save the following outputs per model:
@@ -44,7 +44,7 @@ def evaluate(test_pkl,
     
     """
     Evaluate a fine-tuned regression model on a test set.
-    Save evaluation metrics, model outputs and wrong predictions in `output_dir`. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
+    Save evaluation metrics, model outputs and wrong predictions in 'output_dir'. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
 
     Parameters
     ----------
@@ -89,7 +89,7 @@ def evaluate(test_pkl,
         y_pred = np.array(y_pred)
         return np.sqrt(np.mean((y_true - y_pred) ** 2))
 
-    dom = "STM"
+    dom = 'STM'
     dom_df = test_data[test_data['domain'] == dom]
     print(f"Evaluating domain {dom} with {len(dom_df)} rows...")
 
