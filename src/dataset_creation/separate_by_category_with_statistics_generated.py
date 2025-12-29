@@ -3,8 +3,7 @@ This script processes OpenAI-generated labeled sentences by combining multiple
 JSON files, ensuring uniqueness, splitting entries by category, and generating 
 summary statistics.
 
-First, it loads sentences from multiple JSON files (for example,
-'labeled_sentences.json' and 'labeled_sentences_new_categories.json'). Then, it
+First, it loads sentences from multiple JSON files. Then, it
 combines sentences while ensuring uniqueness based on the tuple ('note_id' and
 'sentence_index'). Then, it checks that the number of categories matches the
 number of labels for each sentence, reporting any mismatches. For each
@@ -16,8 +15,7 @@ JSON files in the 'files_by_category' folder, effectively splitting the original
 OpenAI-generated file by category. Then, it calculates sentence length
 statistics for each category: number of entries, average sentence length (words),
 median sentence length (words), and shortest and longest sentence (words).
-Finally, it writes these statistics to a text file (for example,
-'statistics_generated.txt').
+Finally, it writes these statistics to a text file.
 """
 
 import json
@@ -26,7 +24,7 @@ import statistics
 import copy
 import pandas as pd
 
-files = ["labeled_sentences.json", "labeled_sentences_new_categories.json"]
+files = ["YOUR_INPUT_FILE_1.json", "YOUR_INPUT_FILE_2.json"]
 combined_data = []
 seen_sentences = set()
 
@@ -66,7 +64,7 @@ for entry in combined_data:
 
         category_dict.setdefault(category, []).append(new_entry)
 
-with open('../../statistics/statistics_generated.txt', "w", encoding="utf-8") as f_out:
+with open('YOUR_OUTPUT_FILE.txt', "w", encoding="utf-8") as f_out:
     f_out.write("Statistics for OpenAI generated files\n")
     f_out.write("=" * 70 + "\n\n")
 
