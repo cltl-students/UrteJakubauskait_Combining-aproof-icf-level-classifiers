@@ -78,8 +78,8 @@ if __name__ == '__main__':
     print(f"Note-level metrics for {args.testfile}:")
     
     for dom in args.doms: 
-        test_pkl = f"../data_expr_sept/clf_levels_{dom}_sents/{args.testfile}.pkl"
-        output_pkl = f"../models/levels_all_tokens_sents_combined_all/eval_test_all_tokens_combined_all/{args.outputfile}_{dom}.pkl"
+        test_pkl = f"{args.testfile}.pkl"
+        output_pkl = f"{args.outputfile}_{dom}.pkl"
 
         print(f"\n---{dom} ---")
         evaluate(test_pkl, output_pkl, dom)
