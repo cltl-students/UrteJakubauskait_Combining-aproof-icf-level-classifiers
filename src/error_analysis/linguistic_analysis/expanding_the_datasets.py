@@ -1,6 +1,6 @@
 """
 This script processes a dataset of linguistic elements (for example,
-"intensifiers.csv", stored in a CSV file and creates an expanded
+'intensifiers.csv', stored in a CSV file and creates an expanded
 version of the dataset.
 
 For each row in the original CSV, the original row is kept (with certain
@@ -14,7 +14,7 @@ The resulting expanded dataset is saved as a new CSV file.
 import pandas as pd
 import re
 
-df = pd.read_csv("intensifiers.csv")
+df = pd.read_csv("YOUR_INPUT_FILE.csv")
 
 expanded_rows = []
 
@@ -31,4 +31,4 @@ for _, row in df.iterrows():
 
 expanded_df = pd.DataFrame(expanded_rows)
 
-expanded_df.to_csv(f"final_intensifiers.csv", index=False)
+expanded_df.to_csv(f"YOUR_OUTPUT_FILE.csv", index=False)
