@@ -2,9 +2,8 @@
 This script performs an exploratory overview of a training, development, or test
 dataset stored in a pickle file and exports it as a CSV file.
 
-It loads the dataset from a pickle file (for example, 'train.pkl'). Then,
-it exports the dataset to a CSV file (for example, 'train_ADM.csv'). Finally, it
-prints basic dataset statistics, including: column names, number of rows,
+It loads the dataset from a pickle file. Then, it exports the dataset to a CSV file. 
+Finally, it prints basic dataset statistics, including: column names, number of rows,
 distribution of annotators, distribution of labels, average and median sentence
 length ('len_text'), and minimum and maximum sentence length.
 """
@@ -12,8 +11,8 @@ length ('len_text'), and minimum and maximum sentence length.
 import pickle
 import pandas as pd
 
-df = pd.read_pickle("/A-Proof/data2/a-proof-zonmw/data_expr_sept/clf_levels_ADM_sents/train.pkl")
-df.to_csv("train_ADM.csv", index=False)
+df = pd.read_pickle("YOUR_INPUT_FILE.pkl")
+df.to_csv("YOUR_INPUT_FILE.csv", index=False)
 
 print('Column names:')
 print(df.columns.tolist())
