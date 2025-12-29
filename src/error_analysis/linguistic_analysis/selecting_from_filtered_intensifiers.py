@@ -6,13 +6,13 @@ into a single CSV file.
 Firstly, it iterates over all CSV files in the specified input folder. For each
 file, it reads the dataset into a DataFrame. Then, it filters rows where the
 'text' column contains any of the predefined intensifier words. Then, randomly
-selects up to `sample_size` rows from the filtered subset and creates a copy of
+selects up to 'sample_size' rows from the filtered subset and creates a copy of
 the selected sentences as 'sentence_copy'. Afterwards, the script renames
 'labels' column to 'original_level' and adds a 'new_level' column. Then, it
 inserts the new columns next to the 'text' column for consistency and adds a
 'source_file' column indicating the origin file. Then, it combines all selected
 rows into a single DataFrame. Finally, it saves the combined DataFrame as
-`selected_intensifiers_sentences.csv`.
+'selected_intensifiers_sentences.csv'.
 
 Parameters:
 - input_folder: folder containing filtered CSV datasets.
@@ -25,7 +25,7 @@ import random
 import pickle
 import pandas as pd 
 
-input_folder = "/Users/A-PROOF/urte/error analysis/filtered_train_datasets"
+input_folder = "YOUR_INPUT_FOLDER"
 output_csv = "selected_intensifiers_sentences.csv"
 sample_size = 6
 
