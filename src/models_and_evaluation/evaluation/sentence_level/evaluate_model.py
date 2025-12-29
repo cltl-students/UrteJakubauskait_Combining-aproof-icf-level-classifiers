@@ -40,7 +40,7 @@ def evaluate(test_pkl,
     
     """
     Evaluate a fine-tuned regression model on a test set.
-    Save evaluation metrics, model outputs and wrong predictions in `output_dir`. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
+    Save evaluation metrics, model outputs and wrong predictions in 'output_dir'. The evaluation metrics include: MSE, RMSE, MAE and eval_loss.
 
     Parameters
     ----------
