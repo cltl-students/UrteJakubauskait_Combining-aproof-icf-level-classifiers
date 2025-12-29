@@ -5,20 +5,19 @@ categories, and counts the number of sentences per target category. The filtered
 dataset can then be used for level generation.
 
 First, the script loads the input JSON file containing generated labeled
-sentences ('train_AMC2023.json'). Then, it filters sentences to keep only those
+sentences. Then, it filters sentences to keep only those
 that contain at least one of the specified target categories (for example,
 'B280', 'B134', and 'D760'.). Then, it saves the filtered sentences to a new
-JSON file (for example, 'filtered_sentences_new_categories.json'). Then, it
-loads an existing filtered file ('filtered_sentences.json') and counts the
-number of sentences per target category using a Counter. Finally, it prints the
-number of sentences for each target category.
+JSON file ('filtered_sentences.json'). Then, it loads an existing filtered file 
+and counts the number of sentences per target category using a Counter. Finally, 
+it prints the number of sentences for each target category.
 """
 
 import json
 from collections import Counter
 
-input_file = "train_AMC2023.json"
-output_file = "filtered_sentences_new_categories.json"
+input_file = "YOUR_INPUT_FILE.json"
+output_file = "YOUR_OUTPUT_FILE.json"
 
 target_categories = ["B280", "B134", "D760", "B164", "D465", "D410", "B230", "D240"]
 
