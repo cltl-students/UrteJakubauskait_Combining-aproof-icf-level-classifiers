@@ -95,7 +95,6 @@ def train(train_pkl,
     else:
         model.train_model(train_data)
 
-
 if __name__ == '__main__':
 
     argparser = argparse.ArgumentParser()
