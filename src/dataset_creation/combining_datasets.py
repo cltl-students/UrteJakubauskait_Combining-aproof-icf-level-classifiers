@@ -4,15 +4,13 @@ pickle files) with additional (generated) entries from a JSON file, and saves
 the combined datasets as new pickle files.
 
 Firstly, it loads the existing training and development datasets from pickle
-files (for example, 'train.pkl' and 'dev.pkl') and converts them to record
-dictionaries. Then, it reads a JSON file containing additional entries to be
-added. If an entry contains a 'sentence' field, it is renamed to 'text'. Then,
-the script shuffles the new entries and splits them into 90% for training and
-10% for development. Then, it extends the existing training and development
-datasets with the new entries. Afterwards, it shuffles the combined datasets
-and saves the combined datasets as 'train_combined.pkl' and 'dev_combined.pkl'.
-Finally, it prints the total number of entries in the combined training and
-development sets.
+files and converts them to record dictionaries. Then, it reads a JSON file 
+containing additional entries to be added. If an entry contains a 'sentence' 
+field, it is renamed to 'text'. Then, the script shuffles the new entries and 
+splits them into 90% for training and 10% for development. Then, it extends the 
+existing training and development datasets with the new entries. Afterwards, it 
+shuffles the combined datasets and saves the combined datasets. Finally, it prints 
+the total number of entries in the combined training and development sets.
 """
 
 import json
@@ -54,10 +52,10 @@ dev_combined.extend(new_entries[split_idx:])
 random.shuffle(train_combined)
 random.shuffle(dev_combined)
 
-with open("train_combined.pkl", "wb") as f:
+with open("YOUR_OUTPUT_TRAIN_FILE.pkl", "wb") as f:
     pickle.dump(train_combined, f)
 
-with open("dev_combined.pkl", "wb") as f:
+with open("YOUR_OUTPUT_DEV_FILE.pkl", "wb") as f:
     pickle.dump(dev_combined, f) 
 
 print(f"Total train entries: {len(train_combined)}")
