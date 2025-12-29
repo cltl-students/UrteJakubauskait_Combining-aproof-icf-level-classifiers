@@ -4,13 +4,11 @@ specific linguistic words or expressions (such as intensifiers, modifiers, or
 other target elements). The filtered dataset is then saved as both a pickle 
 and a CSV file.
 
-Firstly, it loads the training dataset from a pickle file (for example,
-'train.pkl'). Then, it defines a list of target words or expressions to filter
-for. Then, it creates a regex pattern that matches any of the target words as
-whole words and filters the dataset to keep only sentences in the 'text' column
-that contain at least one target word. Finally, it saves the filtered dataset
-as a new pickle file (for example, "filtered_train_ADM.pkl") and CSV file
-(for example, "filtered_dataset_ADM.csv").
+Firstly, it loads the training dataset from a pickle file. Then, it defines a list 
+of target words or expressions to filter for. Then, it creates a regex pattern 
+that matches any of the target words as whole words and filters the dataset to keep 
+only sentences in the 'text' column that contain at least one target word. Finally, 
+it saves the filtered dataset as a new pickle file and CSV file.
 """
 
 import pandas as pd 
@@ -52,11 +50,11 @@ words = ['aanzienlijk', 'aardig', 'aardige', 'afgebakend', 'afgebakende', 'alled
          'vreselijke', 'vrijwel', 'waardeloos', 'waardeloze', 'wat', 'zeer', 'zelden', 'zo goed als', 
          'zorgwekkend', 'zorgwekkende', 'zwaar', 'zwak', 'zwakke']
 
-df = pd.read_pickle('train.pkl')
+df = pd.read_pickle('YOUR_INPUT_FILE.pkl')
 
 pattern = r'\b(?:' + '|'.join(re.escape(word) for word in words) + r')\b'
 
 filtered_df = df[df['text'].str.contains(pattern, case=False, regex=True)]
 
-filtered_df.to_pickle('filtered_train_ADM.pkl')
-filtered_df.to_csv('filtered_dataset_ADM.csv', index=False)
+filtered_df.to_pickle('YOUR_OUTPUT_FILE.pkl')
+filtered_df.to_csv('YOUR_OUTPUT_FILE.csv', index=False)
