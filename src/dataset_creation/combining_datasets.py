@@ -23,8 +23,8 @@ import pandas as pd
 
 folder = Path(".")
 
-train_file = "train.pkl"
-dev_file =  "dev.pkl"
+train_file = "YOUR_TRAIN_FILE.pkl"
+dev_file =  "YOUR_DEV_FILE.pkl"
 
 train_data = []
 dev_data = []   
